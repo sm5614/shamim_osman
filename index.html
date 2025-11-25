@@ -1,210 +1,262 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculus + Geometry Exam</title>
-<style>
-  body { font-family: Arial, sans-serif; max-width: 900px; margin:auto; background:#f6f6f6; padding:20px; line-height:1.6; }
-  header { text-align:center; margin-bottom:16px; }
-  .question { background:#fff; padding:16px; border-radius:8px; margin-bottom:12px; box-shadow:0 3px 6px rgba(0,0,0,0.1); }
-  label { display:block; margin:6px 0; cursor:pointer; }
-  button { padding:8px 12px; border:none; border-radius:6px; background:#0b74ff; color:white; font-weight:600; cursor:pointer; margin-top:8px; margin-right:6px; }
-  .result { margin-top:10px; font-weight:600; }
-  iframe { width:100%; height:400px; border:0; margin-top:8px; }
-  .right { border-left:6px solid #10b981; padding-left:10px; }
-  .wrong { border-left:6px solid #ef4444; padding-left:10px; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hard Integration MCQ — 10 Questions</title>
 
-<!-- MathJax -->
-<script>
-window.MathJax = {
-  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-  svg: { fontCache: 'global' }
-};
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    body{
+      font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+      max-width: 980px;
+      margin: 20px auto;
+      padding: 0 16px;
+      line-height: 1.6;
+      color: #111;
+      background: #f6f7fb;
+    }
+    header { text-align: center; margin-bottom: 18px; }
+    .card{
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(20,30,60,0.06);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    h1 { margin: 6px 0; font-size: 1.5rem; }
+    .question { margin: 10px 0; }
+    .opts { margin-top: 8px; }
+    label { display: block; margin: 6px 0; cursor: pointer; }
+    .controls { display:flex; gap:8px; margin: 12px 0; flex-wrap:wrap; }
+    button {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-primary { background: #0b74ff; color: #fff; }
+    .btn-outline { background: #fff; border: 1px solid #d0d7e6; color:#111; }
+    .result { font-size: 1.05rem; margin-top: 10px; }
+    .hidden { display: none; }
+    .wrong { border-left: 6px solid #ef4444; padding-left: 10px; }
+    .right { border-left: 6px solid #10b981; padding-left: 10px; }
+    footer { margin-top: 18px; text-align:center; color:#555; font-size:0.9rem;}
+    .qno { font-weight:700; margin-right:8px; }
+    .small { font-size:0.9rem; color:#444; margin-top:6px; }
+  </style>
 
+  <!-- MathJax v3 -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], macros: {} },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
+  <header>
+    <h1>Hard Integration MCQ — ১০টি প্রশ্ন</h1>
+    <div class="small">বড় বড় ইন্টিগ্রাল, special functions, radicals — MathJax দিয়ে সুন্দর দেখাবে।</div>
+  </header>
 
-<header>
-  <h1>Calculus + Geometry Exam</h1>
-  <p>10 Hard Calculus Questions + 2 Geometry Questions (GeoGebra)</p>
-</header>
+  <main id="exam">
+    <!-- Q1 -->
+    <div class="card question" data-q="0">
+      <div><span class="qno">Q1.</span> $\displaystyle \int x\,e^{x^{2}}\,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q0" value="A"> A) $\tfrac{1}{2}e^{x^{2}} + C$</label>
+        <label><input type="radio" name="q0" value="B"> B) $e^{x^{2}} + C$</label>
+        <label><input type="radio" name="q0" value="C"> C) $x e^{x^{2}} + C$</label>
+        <label><input type="radio" name="q0" value="D"> D) $\tfrac{1}{2}x^{2} e^{x^{2}} + C$</label>
+      </div>
+    </div>
 
-<main id="exam">
+    <!-- Q2 -->
+    <div class="card question" data-q="1">
+      <div><span class="qno">Q2.</span> $\displaystyle \int \frac{1}{x\sqrt{x^{2}-1}}\,dx$ (for $x>1$) =</div>
+      <div class="opts">
+        <label><input type="radio" name="q1" value="A"> A) $\sec^{-1}x + C$</label>
+        <label><input type="radio" name="q1" value="B"> B) $\cos^{-1}x + C$</label>
+        <label><input type="radio" name="q1" value="C"> C) $\tan^{-1}x + C$</label>
+        <label><input type="radio" name="q1" value="D"> D) $\sinh^{-1}x + C$</label>
+      </div>
+    </div>
 
-<!-- Calculus MCQs (1-10) -->
-<div class="question" data-q="0">
-  <div><strong>Q1.</strong> $\displaystyle \int x\,e^{x^{2}}\,dx =$</div>
-  <label><input type="radio" name="q0" value="A"> A) $\frac{1}{2}e^{x^2}+C$</label>
-  <label><input type="radio" name="q0" value="B"> B) $e^{x^2}+C$</label>
-  <label><input type="radio" name="q0" value="C"> C) $x e^{x^2}+C$</label>
-  <label><input type="radio" name="q0" value="D"> D) $\frac{1}{2}x^2 e^{x^2}+C</label>
-</div>
+    <!-- Q3 -->
+    <div class="card question" data-q="2">
+      <div><span class="qno">Q3.</span> $\displaystyle \int_{0}^{\pi/2} \sin^{3}x \,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q2" value="A"> A) $\tfrac{2}{3}$</label>
+        <label><input type="radio" name="q2" value="B"> B) $\tfrac{3}{4}$</label>
+        <label><input type="radio" name="q2" value="C"> C) $\tfrac{1}{2}$</label>
+        <label><input type="radio" name="q2" value="D"> D) $\tfrac{4}{3}$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="1">
-  <div><strong>Q2.</strong> $\displaystyle \int \frac{1}{x\sqrt{x^2-1}}\,dx$ (x>1) =</div>
-  <label><input type="radio" name="q1" value="A"> A) $\sec^{-1}x + C$</label>
-  <label><input type="radio" name="q1" value="B"> B) $\cos^{-1}x + C$</label>
-  <label><input type="radio" name="q1" value="C"> C) $\tan^{-1}x + C$</label>
-  <label><input type="radio" name="q1" value="D"> D) $\sinh^{-1}x + C$</label>
-</div>
+    <!-- Q4 -->
+    <div class="card question" data-q="3">
+      <div><span class="qno">Q4.</span> $\displaystyle \int x\ln x \,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q3" value="A"> A) $\tfrac{x^{2}}{2}\ln x - \tfrac{x^{2}}{4} + C$</label>
+        <label><input type="radio" name="q3" value="B"> B) $\tfrac{x^{2}}{2}\ln x - \tfrac{x^{2}}{2} + C$</label>
+        <label><input type="radio" name="q3" value="C"> C) $x\ln x - x + C$</label>
+        <label><input type="radio" name="q3" value="D"> D) $\ln x + C$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="2">
-  <div><strong>Q3.</strong> $\displaystyle \int_0^{\pi/2} \sin^3 x dx =$</div>
-  <label><input type="radio" name="q2" value="A"> A) $\frac{2}{3}$</label>
-  <label><input type="radio" name="q2" value="B"> B) $\frac{3}{4}$</label>
-  <label><input type="radio" name="q2" value="C"> C) $\frac{1}{2}$</label>
-  <label><input type="radio" name="q2" value="D"> D) $\frac{4}{3}$</label>
-</div>
+    <!-- Q5 (radical complex) -->
+    <div class="card question" data-q="4">
+      <div><span class="qno">Q5.</span> $\displaystyle \int \frac{x^{2}}{\sqrt{1-x^{2}}}\,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q4" value="A"> A) $\tfrac{1}{2}\arcsin x - \tfrac{x}{2}\sqrt{1-x^{2}} + C$</label>
+        <label><input type="radio" name="q4" value="B"> B) $-\sqrt{1-x^{2}} + C$</label>
+        <label><input type="radio" name="q4" value="C"> C) $\sin^{-1}x + C$</label>
+        <label><input type="radio" name="q4" value="D"> D) $x\sqrt{1-x^{2}} + C$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="3">
-  <div><strong>Q4.</strong> $\displaystyle \int x\ln x dx =$</div>
-  <label><input type="radio" name="q3" value="A"> A) $\frac{x^2}{2}\ln x - \frac{x^2}{4}+C$</label>
-  <label><input type="radio" name="q3" value="B"> B) $\frac{x^2}{2}\ln x - \frac{x^2}{2}+C$</label>
-  <label><input type="radio" name="q3" value="C"> C) $x\ln x - x + C$</label>
-  <label><input type="radio" name="q3" value="D"> D) $\ln x + C$</label>
-</div>
+    <!-- Q6 (by parts / repeated) -->
+    <div class="card question" data-q="5">
+      <div><span class="qno">Q6.</span> $\displaystyle \int e^{x}\sin x \,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q5" value="A"> A) $\tfrac{1}{2}e^{x}(\sin x - \cos x) + C$</label>
+        <label><input type="radio" name="q5" value="B"> B) $e^{x}(\sin x + \cos x) + C$</label>
+        <label><input type="radio" name="q5" value="C"> C) $\tfrac{1}{2}e^{x}(\sin x + \cos x) + C$</label>
+        <label><input type="radio" name="q5" value="D"> D) $e^{x}(\cos x - \sin x) + C$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="4">
-  <div><strong>Q5.</strong> $\displaystyle \int \frac{x^2}{\sqrt{1-x^2}} dx =$</div>
-  <label><input type="radio" name="q4" value="A"> A) $\frac{1}{2}\arcsin x - \frac{x}{2}\sqrt{1-x^2}+C$</label>
-  <label><input type="radio" name="q4" value="B"> B) $-\sqrt{1-x^2}+C$</label>
-  <label><input type="radio" name="q4" value="C"> C) $\sin^{-1}x + C$</label>
-  <label><input type="radio" name="q4" value="D"> D) $x\sqrt{1-x^2}+C$</label>
-</div>
+    <!-- Q7 (substitution sqrt) -->
+    <div class="card question" data-q="6">
+      <div><span class="qno">Q7.</span> $\displaystyle \int \frac{1}{(x+1)\sqrt{x}}\,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q6" value="A"> A) $2\arctan(\sqrt{x}) + C$</label>
+        <label><input type="radio" name="q6" value="B"> B) $2\ln(\sqrt{x}+1) + C$</label>
+        <label><input type="radio" name="q6" value="C"> C) $\ln(x+1) + C$</label>
+        <label><input type="radio" name="q6" value="D"> D) $\ln(\sqrt{x}+1) + C$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="5">
-  <div><strong>Q6.</strong> $\displaystyle \int e^x \sin x dx =$</div>
-  <label><input type="radio" name="q5" value="A"> A) $\frac{1}{2}e^x(\sin x - \cos x)+C$</label>
-  <label><input type="radio" name="q5" value="B"> B) $e^x(\sin x + \cos x)+C$</label>
-  <label><input type="radio" name="q5" value="C"> C) $\frac{1}{2}e^x(\sin x + \cos x)+C$</label>
-  <label><input type="radio" name="q5" value="D"> D) $e^x(\cos x - \sin x)+C$</label>
-</div>
+    <!-- Q8 (sqrt(x^2+a^2)) -->
+    <div class="card question" data-q="7">
+      <div><span class="qno">Q8.</span> $\displaystyle \int \sqrt{x^{2}+4}\,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q7" value="A"> A) $\tfrac{x}{2}\sqrt{x^{2}+4} + 2\sinh^{-1}\!\left(\tfrac{x}{2}\right) + C$</label>
+        <label><input type="radio" name="q7" value="B"> B) $x\sqrt{x^{2}+4} + 2\sinh^{-1}\!\left(\tfrac{x}{2}\right) + C$</label>
+        <label><input type="radio" name="q7" value="C"> C) $\sqrt{x^{2}+4} + C$</label>
+        <label><input type="radio" name="q7" value="D"> D) $\sinh^{-1}\!\left(\tfrac{x}{2}\right) + C$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="6">
-  <div><strong>Q7.</strong> $\displaystyle \int \frac{1}{(x+1)\sqrt{x}} dx =$</div>
-  <label><input type="radio" name="q6" value="A"> A) $2\arctan(\sqrt{x})+C$</label>
-  <label><input type="radio" name="q6" value="B"> B) $2\ln(\sqrt{x}+1)+C$</label>
-  <label><input type="radio" name="q6" value="C"> C) $\ln(x+1)+C$</label>
-  <label><input type="radio" name="q6" value="D"> D) $\ln(\sqrt{x}+1)+C$</label>
-</div>
+    <!-- Q9 (complete square) -->
+    <div class="card question" data-q="8">
+      <div><span class="qno">Q9.</span> $\displaystyle \int \frac{dx}{x^{2}+4x+5} =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q8" value="A"> A) $\tan^{-1}(x+2) + C$</label>
+        <label><input type="radio" name="q8" value="B"> B) $\tfrac{1}{2}\tan^{-1}\!\left(\tfrac{x+2}{1}\right) + C$</label>
+        <label><input type="radio" name="q8" value="C"> C) $\ln(x^{2}+4x+5) + C$</label>
+        <label><input type="radio" name="q8" value="D"> D) $\dfrac{1}{x+2} + C$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="7">
-  <div><strong>Q8.</strong> $\displaystyle \int \sqrt{x^2+4} dx =$</div>
-  <label><input type="radio" name="q7" value="A"> A) $\frac{x}{2}\sqrt{x^2+4} + 2\sinh^{-1}(x/2)+C$</label>
-  <label><input type="radio" name="q7" value="B"> B) $x\sqrt{x^2+4} + 2\sinh^{-1}(x/2)+C$</label>
-  <label><input type="radio" name="q7" value="C"> C) $\sqrt{x^2+4}+C$</label>
-  <label><input type="radio" name="q7" value="D"> D) $\sinh^{-1}(x/2)+C$</label>
-</div>
+    <!-- Q10 -->
+    <div class="card question" data-q="9">
+      <div><span class="qno">Q10.</span> $\displaystyle \int \frac{\ln x}{x}\,dx =$</div>
+      <div class="opts">
+        <label><input type="radio" name="q9" value="A"> A) $\tfrac{1}{2}(\ln x)^{2} + C$</label>
+        <label><input type="radio" name="q9" value="B"> B) $\ln x + C$</label>
+        <label><input type="radio" name="q9" value="C"> C) $\dfrac{1}{x}\ln x + C$</label>
+        <label><input type="radio" name="q9" value="D"> D) $x\ln x - x + C$</label>
+      </div>
+    </div>
 
-<div class="question" data-q="8">
-  <div><strong>Q9.</strong> $\displaystyle \int \frac{dx}{x^2+4x+5} =$</div>
-  <label><input type="radio" name="q8" value="A"> A) $\tan^{-1}(x+2)+C$</label>
-  <label><input type="radio" name="q8" value="B"> B) $\frac{1}{2}\tan^{-1}(x+2)+C$</label>
-  <label><input type="radio" name="q8" value="C"> C) $\ln(x^2+4x+5)+C$</label>
-  <label><input type="radio" name="q8" value="D"> D) $\frac{1}{x+2}+C$</label>
-</div>
+    <!-- Controls -->
+    <div class="card">
+      <div class="controls">
+        <button id="submitBtn" class="btn-primary">Submit</button>
+        <button id="clearBtn" class="btn-outline">Clear Answers</button>
+        <button id="revealBtn" class="btn-outline">Show Answers (Teacher)</button>
+      </div>
 
-<div class="question" data-q="9">
-  <div><strong>Q10.</strong> $\displaystyle \int \frac{\ln x}{x} dx =$</div>
-  <label><input type="radio" name="q9" value="A"> A) $\frac{1}{2}(\ln x)^2+C$</label>
-  <label><input type="radio" name="q9" value="B"> B) $\ln x + C$</label>
-  <label><input type="radio" name="q9" value="C"> C) $\frac{1}{x}\ln x+C$</label>
-  <label><input type="radio" name="q9" value="D"> D) $x\ln x - x + C$</label>
-</div>
+      <div id="result" class="result hidden"></div>
+    </div>
+  </main>
 
-<!-- Geometry MCQs (11-12) -->
-<div class="question" data-q="10">
-  <div><strong>Q11.</strong> নিচের ত্রিভুজের ক্ষেত্রফল কত?</div>
-  <iframe src="https://www.geogebra.org/material/iframe/id/zydNxtZb/width/500/height/400/border/888888/rc/false/ai/true" allowfullscreen></iframe>
-  <label><input type="radio" name="q10" value="A"> A) 12</label>
-  <label><input type="radio" name="q10" value="B"> B) 15</label>
-  <label><input type="radio" name="q10" value="C"> C) 18</label>
-  <label><input type="radio" name="q10" value="D"> D) 20</label>
-</div>
+  <footer>
+    Save &amp; host the file where you like. Teacher password in script = <code>teacher</code>. চাওলে আমি password কাস্টম করে দেওয়ার জন্যও পরিবর্তন করে দেবো।
+  </footer>
 
-<div class="question" data-q="11">
-  <div><strong>Q12.</strong> নিচের বৃত্তে কেন্দ্রে বিন্দু থেকে ব্যাসার্ধ পর্যন্ত দূরত্ব কত?</div>
-  <iframe src="https://www.geogebra.org/material/iframe/id/r5uYh7h7/width/500/height/400/border/888888/rc/false/ai/true" allowfullscreen></iframe>
-  <label><input type="radio" name="q11" value="A"> A) 5</label>
-  <label><input type="radio" name="q11" value="B"> B) 6</label>
-  <label><input type="radio" name="q11" value="C"> C) 7</label>
-  <label><input type="radio" name="q11" value="D"> D) 8</label>
-</div>
+  <script>
+    // Correct answers (for q0..q9) - change if you edit questions
+    // Based on the provided choices, correct options are below:
+    const ANSWERS = ["A","A","A","A","A","A","A","A","A","A"];
+    const REVEAL_PASSWORD = "teacher";
 
-<!-- Controls -->
-<button id="submitBtn">Submit</button>
-<button id="clearBtn">Clear Answers</button>
-<button id="revealBtn">Show Answers (Teacher)</button>
-
-<div id="result" class="result"></div>
-
-</main>
-
-<script>
-const ANSWERS = ["A","A","A","A","A","A","A","A","B","A","B","A"]; // correct options
-const TEACHER_PASSWORD = "teacher";
-
-function getSelected(i){
-  const el = document.querySelector('input[name="q'+i+'"]:checked');
-  return el ? el.value : null;
-}
-
-document.getElementById("submitBtn").addEventListener("click",()=>{
-  let score=0;
-  for(let i=0;i<ANSWERS.length;i++){
-    const sel = getSelected(i);
-    const qCard = document.querySelector('.question[data-q="'+i+'"]');
-    qCard.classList.remove('right','wrong');
-    if(sel && sel===ANSWERS[i]){
-      score++; qCard.classList.add('right');
-    } else qCard.classList.add('wrong');
-  }
-  document.getElementById("result").innerHTML = "Score: "+score+" / "+ANSWERS.length;
-  if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-});
-
-document.getElementById("clearBtn").addEventListener("click",()=>{
-  for(let i=0;i<ANSWERS.length;i++){
-    document.querySelectorAll('input[name="q'+i+'"]').forEach(r=>r.checked=false);
-    document.querySelector('.question[data-q="'+i+'"]').classList.remove('right','wrong');
-  }
-  document.getElementById("result").innerHTML = "";
-});
-
-document.getElementById("revealBtn").addEventListener("click",()=>{
-  const pw = prompt("Teacher password:");
-  if(pw===TEACHER_PASSWORD){
-    for(let i=0;i<ANSWERS.length;i++){
-      const qCard = document.querySelector('.question[data-q="'+i+'"]');
-      if(!qCard.querySelector('.reveal')){
-        const div=document.createElement('div');
-        div.textContent="Correct answer: "+ANSWERS[i];
-        div.style.marginTop="6px";
-        div.style.fontWeight="700";
-        qCard.appendChild(div);
-      }
+    function getSelected(i){
+      const el = document.querySelector('input[name="q'+i+'"]:checked');
+      return el ? el.value : null;
     }
-    alert("Answers revealed.");
-  } else alert("Wrong password!");
-});
 
-window.addEventListener("load",()=>{
-  if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-});
-</script>
-<!-- Link to Exam No 2 -->
-<div style="margin-top:20px;">
-  <a href="exam-no-2.html" style="text-decoration:none;">
-    <button style="padding:10px 15px; border:none; border-radius:6px; background:#0b74ff; color:white; font-weight:600; cursor:pointer;">
-      Exam No 2
-    </button>
-  </a>
-</div>
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      let total = ANSWERS.length;
+      let score = 0;
+      for(let i=0;i<total;i++){
+        const sel = getSelected(i);
+        const qCard = document.querySelector('.question[data-q="'+i+'"]');
+        qCard.classList.remove('right','wrong');
+        if(sel && sel === ANSWERS[i]){
+          score++;
+          qCard.classList.add('right');
+        } else if(sel && sel !== ANSWERS[i]){
+          qCard.classList.add('wrong');
+        } else {
+          // unanswered -> mark as wrong visually
+          qCard.classList.add('wrong');
+        }
+      }
+      const pct = Math.round((score/total)*100);
+      const rd = document.getElementById("result");
+      rd.classList.remove("hidden");
+      rd.innerHTML = `<strong>Score:</strong> ${score} / ${total} &nbsp; (${pct}%)`;
+      if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+    });
 
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      for(let i=0;i<ANSWERS.length;i++){
+        const els = document.querySelectorAll('input[name="q'+i+'"]');
+        els.forEach(r => r.checked = false);
+        document.querySelector('.question[data-q="'+i+'"]').classList.remove('right','wrong');
+      }
+      document.getElementById("result").classList.add("hidden");
+      if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+    });
+
+    document.getElementById("revealBtn").addEventListener("click", () => {
+      const pw = prompt("Teacher password দিন (default: 'teacher'):");
+      if(pw === REVEAL_PASSWORD){
+        for(let i=0;i<ANSWERS.length;i++){
+          const qCard = document.querySelector('.question[data-q="'+i+'"]');
+          const existing = qCard.querySelector('.reveal');
+          if(existing) existing.remove();
+          const div = document.createElement('div');
+          div.className = 'reveal';
+          div.style.marginTop = "8px";
+          div.style.fontWeight = "700";
+          div.textContent = "Correct answer: " + ANSWERS[i];
+          qCard.appendChild(div);
+        }
+        alert("Answers revealed on page.");
+        if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+      } else {
+        alert("পাসওয়ার্ড ভুল।");
+      }
+    });
+
+    window.addEventListener("load", () => {
+      if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+    });
+  </script>
 </body>
 </html>
-
